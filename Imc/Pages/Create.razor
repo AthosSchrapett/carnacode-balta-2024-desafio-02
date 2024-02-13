@@ -1,0 +1,34 @@
+﻿@page "/create"
+@inject NavigationManager NavigationManager
+
+<div class="container">
+    <div class="logo-content logo-content-min-size position-logo margin-login-create">
+        <img class="logo" width="95" src="../assets/icon-no-bg.png" alt="imc-logo">
+    </div>
+    <div class="content-box">
+        <div class="title">
+            <h1>Crie sua conta</h1>
+        </div>
+
+        <div class="sub-title">
+            <p>Você precisa criar uma conta</p>
+        </div>
+
+        <div class="group">
+            <input type="text" class="form-text form-text-input" placeholder="Seu username" />
+            <input type="text" class="form-text form-text-input" placeholder="Seu melhor e-mail" />
+            <input type="text" class="form-text form-text-input" placeholder="Sua senha" />
+            <input type="text" class="form-text form-text-input" placeholder="Confirme sua senha" />
+        </div>
+
+        <div class="chk-box-group">
+            <input type="checkbox" id="chk-box">
+            <label for="chk-box">Não sou um robô</label>
+        </div>
+
+        <div class="group">
+            <button class="btn">Criar Conta</button>
+            <button class="btn" @onclick='() => AvancarProximaPagina("/login")'>Fazer Login</button>
+        </div>
+    </div>
+</div>

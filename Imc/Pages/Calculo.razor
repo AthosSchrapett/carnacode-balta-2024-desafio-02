@@ -1,0 +1,29 @@
+﻿@page "/calculo"
+@using Blazored.LocalStorage
+@using Imc.Components
+@using Imc.Models
+@inject ILocalStorageService LocalStorageService
+
+<div class="container">
+    <div class="title">
+        <h1>Cálculo de IMC</h1>
+    </div>
+    <div class="group">
+        <input @bind="calculo.Altura" type="text" class="form-text form-text-input" placeholder="Altura" />
+        <input @bind="calculo.Peso" type="text" class="form-text form-text-input" placeholder="Peso" />
+        <input @bind="calculo.Sexo" type="text" class="form-text form-text-input" placeholder="Sexo" />
+    </div>
+    <div class="chk-box-group">
+        <input @bind="calculo.Idoso" type="checkbox" id="chk-box">
+        <label for="chk-box">Eu tenho 65 anos ou mais</label>
+    </div>
+    <div class="group">
+        <button class="btn" @onclick="OpenModal">Calcular meu IMC</button>
+        <button class="btn">Entenda o cálculo</button>
+    </div>
+
+    @if (modalAberta)
+    {
+        <Result ResultadoImc="calculo.ResultadoImc()" OnCloseModal="CloseModal" />
+    }
+</div>

@@ -1,0 +1,42 @@
+﻿@page "/historico"
+@using Blazored.LocalStorage
+@using Imc.Enums
+@inject ILocalStorageService LocalStorageService
+
+<div class="container">
+    <div class="logo-content logo-content-min-size">
+        <img class="logo" width="95" src="../assets/icon-no-bg.png" alt="imc-logo">
+    </div>
+
+    <div class="title">
+        <h1>Histórico</h1>
+    </div>
+
+    <div class="group">
+        <input type="text" class="form-text form-search" placeholder="Pesquisar..." />
+    </div>
+
+    @foreach (var historico in historicos)
+    {
+        <div class="history-area">
+            <div class="content-block"></div>
+            <div class="history-header-weight">
+                @if (historico.StatusPeso == StatusPeso.PesoIdeal)
+                {
+                    <span>Peso ideal ✅</span>
+                }
+                @if (historico.StatusPeso == StatusPeso.SobrePeso)
+                {
+                    <span>Sobrepeso ⛔️</span>
+                }                
+            </div>
+            <div class="history-header-time">
+                <span class="time">@RetornaDataFormatada(historico.DataInclusao)</span>
+            </div>
+            <div class="description">
+                <p>@historico.Descricao</p>
+            </div>
+            <div class="line-divider"></div>
+        </div>
+    }
+</div>

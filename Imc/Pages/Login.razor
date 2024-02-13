@@ -1,0 +1,32 @@
+﻿@page "/login"
+@inject NavigationManager NavigationManager
+
+<div class="container">
+    <div class="logo-content logo-content-min-size position-logo margin-login-logo">
+        <img class="logo" width="95" src="../assets/icon-no-bg.png" alt="imc-logo">
+    </div>
+    <div class="content-box">
+        <div class="title">
+            <h1>Faça seu Login</h1>
+        </div>
+
+        <div class="sub-title">
+            <p>Insira suas informações antes de medir seu IMC</p>
+        </div>
+
+        <div class="group">
+            <input type="text" class="form-text form-text-input" placeholder="Seu e-mail"/>
+            <input type="text" class="form-text form-text-input" placeholder="Sua senha"/>
+        </div>
+
+        <div class="chk-box-group">
+            <input type="checkbox" id="chk-box">
+            <label for="chk-box">Não sou um robô</label>
+        </div>
+
+        <div class="group">
+            <button class="btn" @onclick='() => AvancarProximaPagina("calculo")'>Fazer Login</button>
+            <button class="btn" @onclick='() => AvancarProximaPagina("create")'>Não tenho acesso</button>
+        </div>
+    </div>
+</div>
